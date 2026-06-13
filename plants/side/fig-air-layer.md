@@ -6,12 +6,18 @@ origin: planted
 acquired: 2026
 status: establishing
 container: true
+cover: fig-air-layer-2026-06.jpg
 ---
 
 ## Context
 
 An air-layer transplant, growing in a portable container. Just pushed out new leaves — still very
 small and leaning markedly to one side.
+
+## Photos
+
+![Fig (air layer) — 2026-06](fig-air-layer-2026-06.jpg)
+*2026-06*
 
 ## Needs
 

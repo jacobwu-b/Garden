@@ -15,3 +15,10 @@ Thumbs.db
 *.NEF
 *.ARW
 *.xmp
+
+# Phone originals: HEIC embeds GPS. NEVER commit — run scripts/garden.py convert,
+# which strips metadata and writes a web JPEG beside the record. Commit the JPEG only.
+*.HEIC
+*.heic
+*.HEIF
+*.heif

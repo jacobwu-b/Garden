@@ -5,11 +5,17 @@ location: side
 origin: planted
 acquired: 2026-01
 status: thriving
+cover: sedum-2026-06.jpg
 ---
 
 ## Context
 
 Planted from trays bought at Home Depot. Has filled in to good ground coverage along the side.
+
+## Photos
+
+![Sedum — 2026-06](sedum-2026-06.jpg)
+*2026-06*
 
 ## Needs
 

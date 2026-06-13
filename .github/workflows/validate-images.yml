@@ -1,0 +1,21 @@
+name: Validate images
+
+# Privacy guardrail: block any pull request or push that commits a raw HEIC or an
+# image still carrying GPS/location metadata, and keep the README gallery in sync.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+      - name: Check images (no HEIC, no location metadata, gallery in sync)
+        run: python3 scripts/garden.py check

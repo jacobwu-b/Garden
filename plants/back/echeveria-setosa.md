@@ -5,12 +5,18 @@ location: back
 origin: planted
 acquired: 2025-06
 status: struggling
+cover: echeveria-setosa-2026-06.jpg
 ---
 
 ## Context
 
 Acquired June 2025 and replanted by me. It grew noticeably, but the flower stalks dried out before
 producing flowers.
+
+## Photos
+
+![Echeveria setosa — 2026-06](echeveria-setosa-2026-06.jpg)
+*2026-06*
 
 ## Needs
 
