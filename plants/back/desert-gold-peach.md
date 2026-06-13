@@ -5,12 +5,18 @@ location: back
 origin: planted
 acquired: 2025-03
 status: thriving
+cover: desert-gold-peach-2026-06.jpg
 ---
 
 ## Context
 
 Planted as a sapling and now about 2m tall — one of my proudest outcomes. Highly precocious: it
 fruited in its first year. The peaches are small but delicious. Heavy, leafy growth.
+
+## Photos
+
+![Desert Gold Peach — 2026-06](desert-gold-peach-2026-06.jpg)
+*2026-06*
 
 ## Needs
 

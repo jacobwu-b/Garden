@@ -14,7 +14,7 @@ plants/
 
 - One Markdown file per plant.
 - Location is the directory, not a guess — `front`, `side`, `back` only.
-- A plant's images live in the same directory, named after the record (e.g. `desert-gold-peach-2026-06.jpg`).
+- A plant's images live in the same directory, named after the record (see [Images](#images)).
 
 ## Filenames
 
@@ -36,7 +36,7 @@ Every record begins with YAML frontmatter. Required fields:
 | `acquired` | `YYYY-MM` or `YYYY-MM-DD` (or bare `YYYY` if the month is genuinely unknown) | When it entered your care (planted date, or acquisition date). |
 | `status` | string | Short current state, e.g. `thriving`, `struggling`, `establishing`, `dormant`. |
 
-Optional fields: `container` (`true` for portable planters/pots), `quantity` (for groupings like bulbs), and any others a plant genuinely needs. Don't add a field that isn't useful; don't omit a required one.
+Optional fields: `container` (`true` for portable planters/pots), `quantity` (for groupings like bulbs), `cover` (filename of the gallery thumbnail — see [Images](#images)), and any others a plant genuinely needs. Don't add a field that isn't useful; don't omit a required one.
 
 ### `origin`
 
@@ -55,6 +55,9 @@ After the frontmatter, use these sections (omit any that don't apply — no empt
 ## Context
 How it came to be here, identity notes, anything that explains the frontmatter.
 
+## Photos
+Images of the plant, newest first, each captioned with its date. Omit if there are none.
+
 ## Needs
 Sun, water, soil, climate notes — what this plant wants in this spot.
 
@@ -69,7 +72,26 @@ Reverse-chronological dated observations. One bullet per event.
 
 A **`## Log`** entry is required whenever a record's state changes — it's the history that makes the tracker useful.
 
+## Images
+
+- **Format:** JPEG, ≤1600px on the long edge, with **all metadata stripped**. A plant may have several
+  images over its life; that's encouraged.
+- **Naming:** `{record-slug}-{YYYY-MM}.jpg` — the record's filename stem, then the capture month
+  (e.g. `desert-gold-peach-2026-06.jpg`). Two in the same month get a numeric suffix: `…-2026-06-2.jpg`.
+- **Location:** in the same directory as the record. Referenced from the record's `## Photos` section.
+- **Gallery thumbnail:** the optional `cover` frontmatter field names which image represents the plant
+  in the README gallery; if unset, the newest image is used.
+- **How to add one — always via the pipeline.** Phone photos are HEIC and embed GPS coordinates that a
+  plain converter does **not** remove. Run `python3 scripts/garden.py convert <src> <record.md>`, which
+  decodes, strips all metadata, resizes, and writes the correctly-named JPEG. Then run
+  `python3 scripts/garden.py gallery` to refresh the README grid. See `CLAUDE.md` §7.
+
 ## Privacy
 
 This repository is public. Keep location coarse (`front` / `side` / `back`). Never record a street
-address or precise coordinates. Strip location metadata from images before committing.
+address or precise coordinates.
+
+**Images carry location too.** iPhone HEIC files embed the exact GPS coordinates where the photo was
+taken. Never commit a raw HEIC (`*.heic` is git-ignored), and never commit an image with intact
+metadata — always go through `scripts/garden.py convert`, which strips it. `scripts/garden.py check`
+(run locally and in CI) blocks any committed HEIC or any image that still carries location data.

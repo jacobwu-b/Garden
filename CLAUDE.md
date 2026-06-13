@@ -23,7 +23,8 @@ This is a **content repository**, not a software project: plant records in Markd
 - **What:** A personal tracker for the garden — what's planted, where, its origin and history, how it's doing, and its care schedule.
 - **Conventions:** `docs/conventions.md` — the record schema and naming rules. Read it before adding or restructuring records.
 - **Format:** Markdown records with YAML frontmatter, organized by location. Images live beside the records they document.
-- **Validation:** none yet (manual review). If a check script is added later, it lives in `scripts/` and is documented here.
+- **Images:** never commit a raw phone HEIC — they embed GPS. Always add photos via `python3 scripts/garden.py convert <src> <record.md>` (strips metadata, resizes, names per convention), then `python3 scripts/garden.py gallery` to refresh the README grid. See §7.
+- **Validation:** `python3 scripts/garden.py check` — fails on any committed HEIC, any image with location metadata, or a stale README gallery. Also enforced in CI (`.github/workflows/validate-images.yml`). Run it before every PR.
 
 ---
 
@@ -124,10 +125,10 @@ There is no automated test suite. A record is valid when:
 |---|---|
 | New plant record | Conventional path; all required frontmatter present; renders cleanly |
 | Edit to a record | Frontmatter still valid; new dated log entry if state changed |
-| New image | Lives beside its record; referenced from the record; no location metadata |
+| New image | Added via `scripts/garden.py convert` (never a raw HEIC); lives beside its record; referenced from `## Photos`; no location metadata; README gallery rebuilt with `scripts/garden.py gallery` |
 | Convention change | `docs/conventions.md` and `plants/_TEMPLATE.md` updated in the same PR |
 
-If a validation script is later added to `scripts/`, document its command here and run it before every PR.
+**Validation command:** `python3 scripts/garden.py check` — fails on any committed HEIC, any image with location metadata, or a stale README gallery. Run it before every PR; CI (`.github/workflows/validate-images.yml`) runs the same check on every push and PR. Requires Pillow (`pip install pillow`); `convert` also uses macOS `sips`.
 
 **Prohibitions:** don't invent dates or identities to fill a field — mark unknowns explicitly. Don't commit images with embedded location data. Don't loosen the convention to fit a record; fix the record or change the convention deliberately.
 
@@ -183,6 +184,8 @@ Record written ≠ done. PR opened ≠ done. **Merged and confirmed = done.**
 | `docs/conventions.md` | Source of truth for record structure and naming. Read before adding content. |
 | `plants/_TEMPLATE.md` | Copy this to start a new plant record. |
 | `plants/{front,side,back}/` | Plant records, one file per plant, organized by location. Images live alongside. |
+| `scripts/garden.py` | Image pipeline: `convert` (HEIC → stripped/resized JPEG), `gallery` (rebuild README grid), `check` (validation guardrail). |
+| `docs/decisions/` | ADRs for convention/architecture decisions. |
+| `docs/plans/` | Significant-tier plans. |
+| `.github/workflows/validate-images.yml` | CI: runs `scripts/garden.py check` on every push and PR. |
 | `.github/PULL_REQUEST_TEMPLATE.md` | Auto-loaded into every PR. Fill every section. |
-
-Optional, add when first needed (and document here): `docs/decisions/` for convention ADRs, `docs/plans/` for Significant-tier plans, `scripts/` for a validation script.

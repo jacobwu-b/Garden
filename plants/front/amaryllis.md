@@ -6,12 +6,18 @@ origin: planted
 acquired: 2026-04
 status: establishing
 quantity: 4
+cover: amaryllis-2026-06.jpg
 ---
 
 ## Context
 
 Four bulbs that originally came waxed (no soil). After the flowers died back, I planted the bulbs in
 soil hoping they would rebloom next winter.
+
+## Photos
+
+![Amaryllis — 2026-06](amaryllis-2026-06.jpg)
+*2026-06*
 
 ## Needs
 
