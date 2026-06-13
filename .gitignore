@@ -1,0 +1,17 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local agent state (Claude Code)
+.claude/
+
+# Image working files — commit exported/optimized images, not originals/sidecars
+*.xcf
+*.psd
+*.CR2
+*.NEF
+*.ARW
+*.xmp
