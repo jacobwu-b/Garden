@@ -111,7 +111,7 @@ Changing any of these is a Significant change requiring approval *before* record
 - **Filenames:** kebab-case, descriptive, disambiguated when a species repeats (e.g. `fig-air-layer.md` vs `fig-communal.md`). Lowercase, no spaces.
 - **Frontmatter:** every record carries the required fields defined in `plants/_TEMPLATE.md` (at minimum `name`, `species`, `location`, `origin`, a planted/acquired date, `status`).
 - **`origin`:** exactly one of `planted` (I started or established it) or `inherited` (present before me — previous tenant or communal). Volunteer/self-seeded plants I chose to keep are `planted` with a note.
-- **Dates:** absolute, `YYYY-MM` or `YYYY-MM-DD`. No "last spring," no relative dates.
+- **Dates:** absolute, `YYYY-MM` or `YYYY-MM-DD` (bare `YYYY` only when the month is genuinely unknown). No "last spring," no relative dates.
 - **Privacy:** coarse location only; never a street address or precise coordinates. Strip location metadata from images before committing.
 
 ---

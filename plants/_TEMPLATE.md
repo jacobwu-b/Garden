@@ -3,7 +3,7 @@ name: Common name
 species: Botanical or cultivar name
 location: front # front | side | back — must match the directory
 origin: planted # planted | inherited
-acquired: YYYY-MM # or YYYY-MM-DD
+acquired: YYYY-MM # or YYYY-MM-DD; bare YYYY if month genuinely unknown
 status: establishing # short current state
 # optional: container: true | quantity: N
 ---

@@ -33,7 +33,7 @@ Every record begins with YAML frontmatter. Required fields:
 | `species` | string | Botanical or cultivar name. Mark unknowns: `"Fig — cultivar unknown"`. |
 | `location` | `front` \| `side` \| `back` | Must match the directory. |
 | `origin` | `planted` \| `inherited` | See below. |
-| `acquired` | `YYYY-MM` or `YYYY-MM-DD` | When it entered your care (planted date, or acquisition date). |
+| `acquired` | `YYYY-MM` or `YYYY-MM-DD` (or bare `YYYY` if the month is genuinely unknown) | When it entered your care (planted date, or acquisition date). |
 | `status` | string | Short current state, e.g. `thriving`, `struggling`, `establishing`, `dormant`. |
 
 Optional fields: `container` (`true` for portable planters/pots), `quantity` (for groupings like bulbs), and any others a plant genuinely needs. Don't add a field that isn't useful; don't omit a required one.
@@ -45,7 +45,7 @@ Optional fields: `container` (`true` for portable planters/pots), `quantity` (fo
 
 ### Dates
 
-Always absolute — `YYYY-MM` when the day is unknown, `YYYY-MM-DD` when known. Never relative ("last spring").
+Always absolute — `YYYY-MM-DD` when known, `YYYY-MM` when the day is unknown, and bare `YYYY` only when the month is genuinely unknown (common for `inherited` plants whose history predates you). Never relative ("last spring").
 
 ## Body structure
 
